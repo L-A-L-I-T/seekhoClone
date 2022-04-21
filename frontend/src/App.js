@@ -14,8 +14,8 @@ function App() {
 			<Navbar />
 			<Poster />
 			<Membership />
-			<BestCourses />
 			<Join />
+			<BestCourses />
 			<RewardLearning />
 			<FutureReady />
 			<Vision />
