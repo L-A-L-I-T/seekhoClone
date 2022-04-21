@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/static/js/main.f79ef6da.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/about.webp": "/static/media/about.7e56ac3304fa99720f60.webp",
+    "static/media/painPoint.webp": "/static/media/painPoint.486fbd5aa9d14ecd87fc.webp",
+    "static/media/X.png": "/static/media/X.5af6743b417501f6561a.png",
+    "static/media/playStore.png": "/static/media/playStore.eb4f576bd3f0f2c0c6f8.png",
+    "static/media/downloadApp.webp": "/static/media/downloadApp.e3115452d574754f149e.webp",
+    "static/media/joinCommunity.webp": "/static/media/joinCommunity.5453d3d0f23d62f3b317.webp",
+    "static/media/talentBoard.webp": "/static/media/talentBoard.c1fb212b94e7ec1e29ac.webp",
+    "static/media/newSeekhoLogo.webp": "/static/media/newSeekhoLogo.3c08e4bcef4dd8704c36.webp",
+    "static/media/talentBoardIcon.png": "/static/media/talentBoardIcon.30ebdd8cb032ddbcd48f.png",
+    "static/media/discussions.png": "/static/media/discussions.97a0a6e8cd864c538bf1.png",
+    "static/media/appStore.svg": "/static/media/appStore.5fa8a70916a574a892d9b0d4415e6b14.svg",
+    "index.html": "/index.html",
+    "main.f79ef6da.js.map": "/static/js/main.f79ef6da.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f79ef6da.js"
+  ]
+}
