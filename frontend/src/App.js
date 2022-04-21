@@ -8,12 +8,14 @@ import Join from "./components/Join";
 import Poster from "./components/Poster";
 import Membership from "./components/Membership";
 import RewardLearning from "./components/RewardLearning";
+import HeroSection from "./components/HeroSection";
 function App() {
 	return (
 		<div>
 			<Navbar />
-			<Poster />
+			<HeroSection />
 			<Membership />
+			<Poster />
 			<Join />
 			<BestCourses />
 			<RewardLearning />

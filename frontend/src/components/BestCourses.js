@@ -7,7 +7,7 @@ import CourseCard from "./CourseCard";
 
 const styles = createUseStyles({
 	bestCourses: {
-		margin: "20px",
+		margin: "80px",
 	},
 	title: {
 		margin: "0",
@@ -24,6 +24,14 @@ const styles = createUseStyles({
 			display: "none",
 		},
 	},
+	text1: {
+		fontFamily: "'Poppins', sans-serif",
+		fontSize: "31px",
+		letterSpacing: "0.8px",
+		fontWeight: "600",
+		lineHeight: "44px",
+		marginBottom: "13px",
+	},
 });
 
 function BestCourses() {
@@ -39,7 +47,9 @@ function BestCourses() {
 	console.log(courses);
 	return (
 		<div className={classes.bestCourses}>
-			<h3>Check out some of our best courses</h3>
+			<h3 className={classes.text1} style={{ color: "rgb(7, 36, 109)" }}>
+				Check out some of our best courses
+			</h3>
 			{courses && (
 				<div className={classes.rowCourses}>
 					{courses.map((course, id) => {
