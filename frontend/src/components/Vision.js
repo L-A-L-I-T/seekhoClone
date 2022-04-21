@@ -3,6 +3,9 @@ import { createUseStyles } from "react-jss";
 import AboutImage from "../Icons/about.webp";
 
 const styles = createUseStyles({
+	container: {
+		margin: "0px 110px",
+	},
 	text1: {
 		fontFamily: "'Poppins', sans-serif",
 		fontSize: "31px",
@@ -34,7 +37,7 @@ const styles = createUseStyles({
 function Vision() {
 	const classes = styles();
 	return (
-		<div class="container">
+		<div className={`${classes.container}`}>
 			<div class="row justify-content-center align-items-center">
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div
@@ -73,7 +76,7 @@ function Vision() {
 						style={{
 							display: "flex",
 							height: "100%",
-							justifyContent: "center",
+							justifyContent: "end",
 							alignItems: "center",
 						}}
 					>

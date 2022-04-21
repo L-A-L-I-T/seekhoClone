@@ -1,27 +1,30 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import SeekhoLogo from "../Icons/newSeekhoLogo.webp";
 
 const styles = createUseStyles({
 	footer: {
-		height: "400px",
 		borderRadius: "90px 0px 0px 0px",
 		backgroundColor: "#f8f8f8",
-	},
-	innerContainer: {
-		margin: "0px 120px",
-		display: "flex",
-		justifyContent: "space-between",
 	},
 });
 
 function Footer() {
 	const classes = styles();
 	return (
-		<div className={classes.footer}>
-			<div className={classes.innerContainer}>
-				<div style={{ marginTop: "50px" }}>Seekho</div>
-				<div style={{ marginTop: "50px" }}>
-					<p>Academics</p>
+		<div className={`${classes.footer}`}>
+			<div className="row" style={{ margin: "0px 100px" }}>
+				<div
+					className="col-lg-2 col-md-2 col-sm-12 col-xs-12"
+					style={{ marginTop: "50px" }}
+				>
+					<img src={SeekhoLogo} alt="logo" style={{ width: "140px" }} />
+				</div>
+				<div
+					className="col-lg-2 col-md-2 col-sm-12 col-xs-12"
+					style={{ marginTop: "50px" }}
+				>
+					<p style={{ fontWeight: "bold" }}>Academics</p>
 					<p class="mb-0">Product Management</p>
 					<p class="mb-0">Consulting</p>
 					<p class="mb-0">Finance</p>
@@ -32,8 +35,11 @@ function Footer() {
 					<p class="mb-0">HR Management</p>
 					<p class="mb-0">Analytics & Data Science</p>
 				</div>
-				<div style={{ marginTop: "50px" }}>
-					<p>Explore</p>
+				<div
+					className="col-lg-2 col-md-2 col-sm-12 col-xs-12"
+					style={{ marginTop: "50px" }}
+				>
+					<p style={{ fontWeight: "bold" }}>Explore</p>
 					<p class="mb-0">LIVE Events</p>
 					<p class="mb-0">Series</p>
 					<p class="mb-0">Courses</p>
@@ -41,8 +47,11 @@ function Footer() {
 					<p class="mb-0">Quizzes</p>
 					<p class="mb-0">Discussions</p>
 				</div>
-				<div style={{ marginTop: "50px" }}>
-					<p>Company</p>
+				<div
+					className="col-lg-2 col-md-2 col-sm-12 col-xs-12"
+					style={{ marginTop: "50px" }}
+				>
+					<p style={{ fontWeight: "bold" }}>Company</p>
 					<p class="mb-0">SeekhoX</p>
 					<p class="mb-0">About Us</p>
 					<p class="mb-0">Blog</p>
@@ -50,8 +59,11 @@ function Footer() {
 					<p class="mb-0">Terms of Service</p>
 					<p class="mb-0">FAQs</p>
 				</div>
-				<div style={{ width: "220px", marginTop: "50px" }}>
-					<p>Get in Touch</p>
+				<div
+					className="col-lg-4 col-md-2 col-sm-12 col-xs-12"
+					style={{ marginTop: "50px" }}
+				>
+					<p style={{ fontWeight: "bold" }}>Get in Touch</p>
 					<p>
 						Seekify Technologies Private Limited, 2nd Floor, C-46, Neeti Bagh,
 						South Delhi, Delhi, India, 110049
@@ -63,16 +75,18 @@ function Footer() {
 				</div>
 			</div>
 			<div
-				class="border-top"
+				className="border-top row"
 				style={{
-					textAlign: "center",
 					paddingTop: "30px",
 					marginBottom: "0px",
 					marginTop: "20px",
 					fontSize: "12px",
+					width: "100%",
 				}}
 			>
-				© Copyright 2022 SEEKHO. All rights reserved
+				<p style={{ textAlign: "center" }}>
+					© Copyright 2022 SEEKHO. All rights reserved
+				</p>
 			</div>
 		</div>
 	);
