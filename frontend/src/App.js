@@ -14,14 +14,22 @@ function App() {
 		<div>
 			<Navbar />
 			<HeroSection />
+			<div style={{ height: "100px" }}></div>
 			<Membership />
+			<div style={{ height: "100px" }}></div>
 			<Poster />
+			<div style={{ height: "100px" }}></div>
 			<Join />
 			<BestCourses />
+			<div style={{ height: "100px" }}></div>
 			<RewardLearning />
+			<div style={{ height: "100px" }}></div>
 			<FutureReady />
+			<div style={{ height: "100px" }}></div>
 			<Vision />
+			<div style={{ height: "100px" }}></div>
 			<StoreDownload />
+			<div style={{ height: "100px" }}></div>
 			<Footer />
 		</div>
 	);

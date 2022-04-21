@@ -36,6 +36,7 @@ const styles = createUseStyles({
 		fontWeight: "500",
 		marginBottom: "23px",
 		lineHeight: "40px",
+		color: "rgb(125, 136, 154)",
 	},
 });
 

@@ -103,131 +103,51 @@ function Membership() {
 						src="https://seekho.ai/assets/images/home-page/seekhoSelect.webp"
 					/>
 				</div>
-				<div class="col-md-5 mb-3" style={{ height: "580px" }}>
-					<div class="col p-0 seekho-select-step active" data-active-step="1">
-						<div class="card p-0" style={{ border: "none" }}>
-							<div class="d-flex">
-								<div
-									class="d-block mr-3 text-center"
-									style={{ transitionDuration: "12.766s" }}
-								>
-									<span
-										class="seekho-select-step-icon text-white text-center cursor-pointer font-weight-bold"
-										data-step-number="1"
-									></span>
-
-									<span class="d-block mx-auto">
-										<span class="d-block position-relative step-progress-bar-div">
-											<span
-												class="step-dotted-line"
-												style={{
-													writingMode: "vertical-rl",
-													textOrientation: "mixed",
-													color: "rgba(255, 89, 118, 0.5)",
-												}}
-											>
-												- - - - - - - - - -
-											</span>
-											<span
-												class="step-dotted-line-active"
-												style={{
-													writingMode: "vertical-rl",
-													textOrientation: "mixed",
-													color: "rgba(255, 89, 118, 0.5)",
-												}}
-											>
-												- - - - - - - - - - - - - - - -
-											</span>
-											<span
-												class="position-absolute step-progress-bar"
-												style={{
-													writingMode: "vertical-rl",
-													textOrientation: "mixed",
-													color: "rgba(255, 89, 118, 0.5)",
-													left: "50%",
-													marginLeft: "-2px",
-													top: "0",
-													width: "2px",
-													backgroundColor: "rgb(255, 89, 118)",
-												}}
-											></span>
-										</span>
-									</span>
-								</div>
-								<div class="d-block mt-0">
-									<div class="seekho-select-step-title" data-step-number="1">
-										Live classes from Industry Gurus
-									</div>
-									<div class="mr-3 seekho-select-step-description">
-										Get access to 1000+ live classes directly from industry
-										experts.
-									</div>
-								</div>
-							</div>
-						</div>
+				<div
+					class="col-md-5 mb-3"
+					style={{
+						height: "580px",
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "center",
+						alignItems: "start",
+					}}
+				>
+					<div>
+						<p className={classes.text} style={{ fontSize: "20px" }}>
+							Live classes from Industry Gurus
+						</p>
+						<p className={classes.text1} style={{ fontSize: "15px" }}>
+							Get access to 1000+ live classes directly from industry experts.
+						</p>
 					</div>
-
-					<div class="col p-0 seekho-select-step" data-active-step="2">
-						<div class="card p-0" style={{ border: "none" }}>
-							<div class="d-flex">
-								<div
-									class="d-block mr-3 text-center"
-									style={{ transitionDuration: "12.766s" }}
-								>
-									<span
-										class="seekho-select-step-icon text-white text-center cursor-pointer font-weight-bold"
-										data-step-number="2"
-									></span>
-
-									<span class="d-block mx-auto">
-										<span class="d-block position-relative step-progress-bar-div">
-											<span
-												class="step-dotted-line"
-												style={{
-													writingMode: "vertical-rl",
-													textOrientation: "mixed",
-													color: "rgba(255, 89, 118, 0.5)",
-												}}
-											>
-												- - - - - - - - - -
-											</span>
-											<span
-												class="step-dotted-line-active"
-												style={{
-													writingMode: "vertical-rl",
-													textOrientation: "mixed",
-													color: "rgba(255, 89, 118, 0.5)",
-												}}
-											>
-												- - - - - - - - - - - - - - - -
-											</span>
-											<span
-												class="position-absolute step-progress-bar"
-												style={{
-													writingMode: "vertical-rl",
-													textOrientation: "mixed",
-													color: "rgba(255, 89, 118, 0.5)",
-													left: "50%",
-													marginLeft: "-2px",
-													top: "0",
-													width: "2px",
-													backgroundColor: "rgb(255, 89, 118)",
-												}}
-											></span>
-										</span>
-									</span>
-								</div>
-								<div class="d-block mt-0">
-									<div class="seekho-select-step-title" data-step-number="2">
-										Learning Community
-									</div>
-									<div class="mr-3 seekho-select-step-description">
-										Select members are part of a learning community that’s
-										always there for each other.
-									</div>
-								</div>
-							</div>
-						</div>
+					<div>
+						<p className={classes.text} style={{ fontSize: "20px" }}>
+							Learning Community
+						</p>
+						<p className={classes.text1} style={{ fontSize: "15px" }}>
+							Select members are part of a learning community that’s always
+							there for each other.
+						</p>
+					</div>
+					<div>
+						<p className={classes.text} style={{ fontSize: "20px" }}>
+							Exclusive Mentoship
+						</p>
+						<p className={classes.text1} style={{ fontSize: "15px" }}>
+							Connect with Mentors via Live Classes, breakout sessions and
+							discussion forums.
+						</p>
+					</div>
+					<div>
+						<p className={classes.text} style={{ fontSize: "20px" }}>
+							{" "}
+							Get Kickass Jobss
+						</p>
+						<p className={classes.text1} style={{ fontSize: "15px" }}>
+							Our mission is to get you closer to the most exciting jobs and
+							internships.
+						</p>
 					</div>
 				</div>
 			</div>

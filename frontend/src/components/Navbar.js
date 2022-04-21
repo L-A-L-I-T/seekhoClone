@@ -10,13 +10,14 @@ import SlickArrow from "../Icons/SlickArrowNext.svg";
 const styles = createUseStyles({
 	container: {
 		width: "100%",
-		padding: "0px 150px",
+		padding: "10px 150px",
 		display: "flex",
 		alignItems: "center",
 		backgroundColor: "#ffffff",
 		position: "fixed",
 		top: "0",
 		zIndex: "100",
+		boxShadow: "0 5px 2px -2px rgba(0,0,0,.2)",
 	},
 	tab: {
 		display: "flex",
