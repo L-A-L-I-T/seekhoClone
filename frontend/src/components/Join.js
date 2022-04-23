@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { createUseStyles } from "react-jss";
-import JoinImage from "../Icons/joinCommunity.webp";
+import Lottie from "react-lottie";
+import Hand from "../lotties/Hand";
 
 const styles = createUseStyles({
 	container: {
-		margin: "0 auto 156px",
 		position: "relative",
 		maxWidth: "1170px",
 		marginBottom: "184px",
@@ -13,6 +13,7 @@ const styles = createUseStyles({
 		display: "flex",
 		flexDirection: "row-reverse",
 		alignItems: "center",
+		justifyContent: "center",
 	},
 	text: {
 		fontFamily: "'Poppins', sans-serif",
@@ -57,37 +58,67 @@ const styles = createUseStyles({
 		},
 	},
 	gifSmall: {
-		height: "32px",
-		width: "32px",
-		left: "260px",
-		bottom: "294px",
+		position: "absolute",
+		height: "40px",
+		width: "70px",
 	},
 	gifLarge: {
-		height: "40px",
-		width: "40px",
-		left: "460px",
-		bottom: "180px",
+		position: "absolute",
+		height: "60px",
+		width: "80px",
 	},
 });
 
 function Join() {
 	const classes = styles();
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: Hand,
+		rendererSettings: {
+			preserveAspectRatio: "xMidYMid slice",
+		},
+	};
+
+	const [margin, setMargin] = useState({ margin: "0px 110px" });
+	const [smallGifPos, setSmallGifPos] = useState({
+		left: "290px",
+		bottom: "290px",
+	});
+	const [bigGifPos, setBigGifPos] = useState({
+		left: "490px",
+		bottom: "170px",
+	});
+	useLayoutEffect(() => {
+		function updateSize() {
+			const size = window.innerWidth;
+			console.log(size);
+			if (size <= 500) {
+				setMargin({ margin: "0px 20px" });
+				setSmallGifPos({ left: "190px", bottom: "215px" });
+				setBigGifPos({ left: "348px", bottom: "120px" });
+			} else {
+				setMargin({ margin: "0px 110px" });
+				setSmallGifPos({ left: "290px", bottom: "290px" });
+				setBigGifPos({ left: "490px", bottom: "165px" });
+			}
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
+
 	return (
-		<div className={classes.container}>
+		<div className={classes.container} style={margin}>
 			<div className={`${classes.innerContainer} row`}>
 				<div
-					class="col-md-6 col-sm-12 col-xs-12"
+					class="col-lg-6 col-md-12 col-sm-12 col-xs-12"
 					style={{
 						maxWidth: "500px",
 						marginBottom: "60px",
-						marginLeft: "auto",
 					}}
 				>
-					<div
-						class="px-4 px-md-0"
-						className={classes.text}
-						style={{ color: "rgb(7, 36, 109)" }}
-					>
+					<div className={classes.text} style={{ color: "rgb(7, 36, 109)" }}>
 						Join 10k+members from finest colleges and top companies
 					</div>
 					<div className={classes.text2}>
@@ -99,7 +130,7 @@ function Join() {
 					</a>
 				</div>
 				<div
-					class="col-md-6 col-sm-12 col-xs-12"
+					class="col-lg-6 col-md-12 col-sm-12 col-xs-12"
 					style={{ maxWidth: "600px", position: "relative" }}
 				>
 					<img
@@ -108,23 +139,11 @@ function Join() {
 						alt="img"
 					/>
 				</div>
-				<div className={classes.gifSmall} style={{ position: "absolute" }}>
-					<lottie-player
-						src="https://seekho.ai/assets2.lottiefiles.com/packages/lf20_6niurjte.json"
-						background="transparent"
-						speed="1"
-						loop
-						autoplay
-					></lottie-player>
+				<div className={classes.gifSmall} style={smallGifPos}>
+					<Lottie options={defaultOptions} />
 				</div>
-				<div className={classes.gifLarge} style={{ position: "absolute" }}>
-					<lottie-player
-						src="https://seekho.ai/assets2.lottiefiles.com/packages/lf20_6niurjte.json"
-						background="transparent"
-						speed="1"
-						loop
-						autoplay
-					></lottie-player>
+				<div className={classes.gifLarge} style={bigGifPos}>
+					<Lottie options={defaultOptions} />
 				</div>
 			</div>
 		</div>

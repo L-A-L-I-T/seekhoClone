@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { createUseStyles } from "react-jss";
 import PainPoint from "../Icons/painPoint.webp";
-
+import Future from "../lotties/future";
+import Lottie from "react-lottie";
 const styles = createUseStyles({
 	container: {
 		margin: "0px 110px",
@@ -38,14 +39,63 @@ const styles = createUseStyles({
 		lineHeight: "40px",
 		color: "rgb(125, 136, 154)",
 	},
+	gif: {
+		position: "absolute",
+		zIndex: 1,
+	},
 });
 
 function FutureReady() {
 	const classes = styles();
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: Future,
+		rendererSettings: {
+			preserveAspectRatio: "xMidYMid slice",
+		},
+	};
+	const [style, setStyle] = useState({});
+	const [flexDirection, setFlexDirection] = useState({});
+	const [imgSize, setImgSize] = useState({ width: "400px", height: "auto" });
+	const [gifPos, setGifPos] = useState({ left: "180px", bottom: "465px" });
+	useLayoutEffect(() => {
+		function updateSize() {
+			const size = window.innerWidth;
+			console.log(size);
+			if (size <= 500) {
+				setStyle({ margin: "0px 20px" });
+				setFlexDirection({ flexDirection: "column-reverse" });
+				setImgSize({
+					width: "350px",
+					height: "auto",
+				});
+				setGifPos({ left: "130px", bottom: "400px" });
+			} else {
+				setStyle({});
+				setFlexDirection({});
+				setImgSize({
+					width: "400px",
+					height: "auto",
+				});
+				setGifPos({ left: "180px", bottom: "465px" });
+			}
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
+
 	return (
-		<div className={classes.container}>
-			<div class="row justify-content-center align-items-center">
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<div className={classes.container} style={style}>
+			<div
+				class={`row justify-content-center align-items-center `}
+				style={flexDirection}
+			>
+				<div
+					class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
+					style={{ position: "relative" }}
+				>
 					<div
 						style={{
 							display: "flex",
@@ -54,13 +104,13 @@ function FutureReady() {
 							alignItems: "center",
 						}}
 					>
-						<img
-							src={PainPoint}
-							alt="paint point"
-							style={{ width: "400px", height: "auto" }}
-						/>
+						<img src={PainPoint} alt="paint point" style={imgSize} />
+					</div>
+					<div className={classes.gif} style={gifPos}>
+						<Lottie options={defaultOptions} height={240} width={240} />
 					</div>
 				</div>
+
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<div
 						style={{
@@ -69,6 +119,7 @@ function FutureReady() {
 							flexDirection: "column",
 							justifyContent: "center",
 							alignItems: "start",
+							marginBottom: "100px",
 						}}
 					>
 						<p className={classes.text1} style={{ color: "rgb(7, 36, 109)" }}>

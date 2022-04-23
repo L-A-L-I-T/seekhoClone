@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import axios from "axios";
 import { createUseStyles } from "react-jss";
 //? Importing Components------>
@@ -44,9 +44,27 @@ function BestCourses() {
 	useEffect(() => {
 		getCourses();
 	}, []);
+
+	const [margin, setMargin] = useState({ margin: "0px 80px" });
+
+	useLayoutEffect(() => {
+		function updateSize() {
+			const size = window.innerWidth;
+			console.log(size);
+			if (size <= 500) {
+				setMargin({ margin: "0px 20px" });
+			} else {
+				setMargin({ margin: "0px 80px" });
+			}
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
+
 	console.log(courses);
 	return (
-		<div className={classes.bestCourses}>
+		<div className={classes.bestCourses} style={margin}>
 			<h3 className={classes.text1} style={{ color: "rgb(7, 36, 109)" }}>
 				Check out some of our best courses
 			</h3>

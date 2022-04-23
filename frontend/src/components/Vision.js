@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { createUseStyles } from "react-jss";
 import AboutImage from "../Icons/about.webp";
 
@@ -36,8 +36,26 @@ const styles = createUseStyles({
 
 function Vision() {
 	const classes = styles();
+	const [style, setStyle] = useState({});
+	const [imgSize, setImgSize] = useState({ width: "700px", height: "auto" });
+	useLayoutEffect(() => {
+		function updateSize() {
+			const size = window.innerWidth;
+			console.log(size);
+			if (size <= 500) {
+				setStyle({ margin: "0px 20px" });
+				setImgSize({ width: "500px", height: "auto" });
+			} else {
+				setStyle({});
+				setImgSize({ width: "700px", height: "auto" });
+			}
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
 	return (
-		<div className={`${classes.container}`}>
+		<div className={`${classes.container}`} style={style}>
 			<div class="row justify-content-center align-items-center">
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div
@@ -46,7 +64,7 @@ function Vision() {
 							height: "100%",
 							flexDirection: "column",
 							justifyContent: "center",
-							alignItems: "start",
+							alignItems: "center",
 						}}
 					>
 						<p className={classes.text1} style={{ color: "rgb(7, 36, 109)" }}>
@@ -80,11 +98,7 @@ function Vision() {
 							alignItems: "center",
 						}}
 					>
-						<img
-							src={AboutImage}
-							alt="img"
-							style={{ width: "700px", height: "auto" }}
-						/>
+						<img src={AboutImage} alt="img" style={imgSize} />
 					</div>
 				</div>
 			</div>

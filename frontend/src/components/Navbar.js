@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { createUseStyles } from "react-jss";
 import MenuIcon from "../Icons/menu.png";
 import SeekhoLogo from "../Icons/newSeekhoLogo.webp";
@@ -10,7 +10,6 @@ import SlickArrow from "../Icons/SlickArrowNext.svg";
 const styles = createUseStyles({
 	container: {
 		width: "100%",
-		padding: "10px 150px",
 		display: "flex",
 		alignItems: "center",
 		backgroundColor: "#ffffff",
@@ -65,57 +64,90 @@ const styles = createUseStyles({
 
 function Navbar() {
 	const classes = styles();
-	const [menuOpen, setMenuOpen] = useState(false);
+	const [padding, setPadding] = useState({ padding: "10px 150px" });
+	const [windowSize, setWindowSize] = useState(window.innerWidth);
+	useLayoutEffect(() => {
+		function updateSize() {
+			const size = window.innerWidth;
+			setWindowSize(size);
+			console.log(size);
+			if (size <= 500) {
+				setPadding({ padding: "10px 20px" });
+			} else {
+				setPadding({ padding: "10px 150px" });
+			}
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
 	return (
-		<div className={`${classes.container}`}>
+		<div className={`${classes.container}`} style={padding}>
 			<div>
 				<img src={SeekhoLogo} alt="logo" style={{ width: "130px" }} />
 			</div>
-			<div
-				style={{
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-				}}
+			{windowSize > 500 && (
+				<>
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+						}}
+					>
+						<button
+							style={{ marginBottom: "0px", marginLeft: "10px" }}
+							className={classes.navLink}
+						>
+							Academics
+						</button>
+						<img
+							src={SlickArrow}
+							alt="icon"
+							style={{
+								width: "15px",
+								height: "15px",
+								transform: "rotate(90deg)",
+							}}
+						/>
+					</div>
+					<div style={{ marginLeft: "auto" }} className={classes.tab}>
+						<img
+							src={XIcon}
+							alt="logo"
+							style={{ width: "20px", height: "20px", marginBottom: "0px" }}
+						/>
+						<p style={{ marginBottom: "0px", marginLeft: "5px" }}>SeekhoX</p>
+					</div>
+					<div className={classes.tab}>
+						<img
+							src={DiscussionIcon}
+							alt="discussion icon"
+							style={{ width: "20px", height: "20px" }}
+						/>
+						<p style={{ marginBottom: "0px", marginLeft: "5px" }}>
+							Discussions
+						</p>
+					</div>
+					<div className={classes.tab}>
+						<img
+							src={TalentboardIcon}
+							alt="discussion icon"
+							style={{ width: "20px", height: "20px" }}
+						/>
+						<p style={{ marginBottom: "0px", marginLeft: "5px" }}>
+							Talentboard
+						</p>
+					</div>{" "}
+				</>
+			)}
+			<button
+				class={classes.loginBtn}
+				style={{ marginLeft: windowSize > 500 ? "" : "auto" }}
 			>
-				<button
-					style={{ marginBottom: "0px", marginLeft: "10px" }}
-					className={classes.navLink}
-				>
-					Academics
-				</button>
-				<img
-					src={SlickArrow}
-					alt="icon"
-					style={{ width: "15px", height: "15px", transform: "rotate(90deg)" }}
-				/>
-			</div>
-			<div style={{ marginLeft: "auto" }} className={classes.tab}>
-				<img
-					src={XIcon}
-					alt="logo"
-					style={{ width: "20px", height: "20px", marginBottom: "0px" }}
-				/>
-				<p style={{ marginBottom: "0px", marginLeft: "5px" }}>SeekhoX</p>
-			</div>
-			<div className={classes.tab}>
-				<img
-					src={DiscussionIcon}
-					alt="discussion icon"
-					style={{ width: "20px", height: "20px" }}
-				/>
-				<p style={{ marginBottom: "0px", marginLeft: "5px" }}>Discussions</p>
-			</div>
-			<div className={classes.tab}>
-				<img
-					src={TalentboardIcon}
-					alt="discussion icon"
-					style={{ width: "20px", height: "20px" }}
-				/>
-				<p style={{ marginBottom: "0px", marginLeft: "5px" }}>Talentboard</p>
-			</div>
-			<button class={classes.loginBtn}>Login</button>
-			{!menuOpen ? (
+				Login
+			</button>
+			{/* {!menuOpen ? (
 				<img
 					src={MenuIcon}
 					alt="menu icon"
@@ -128,7 +160,7 @@ function Navbar() {
 					aria-label="Close"
 					style={{ width: "40px", height: "40px", padding: "0px" }}
 				></button>
-			)}
+			)} */}
 		</div>
 	);
 }

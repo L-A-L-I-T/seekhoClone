@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { createUseStyles } from "react-jss";
 
 const styles = createUseStyles({
 	container: {
-		margin: "0 auto 156px",
 		position: "relative",
 		maxWidth: "1170px",
 		marginBottom: "30px",
@@ -39,38 +38,49 @@ const styles = createUseStyles({
 		color: "rgb(255, 89, 118)",
 		fontWeight: "600",
 	},
-	img: {
-		width: "750px",
-		marginTop: "-50px",
-	},
 	innerContainer: {
 		display: "flex",
 		flexDirection: "row-reverse",
 		alignItems: "center",
+		justifyContent: "center",
 	},
 });
 
 function Membership() {
+	const [windowSize, setWindowSize] = useState(window.innerWidth);
+	const [margin, setMargin] = useState({ margin: "0 auto 156px" });
+	const [img, setImg] = useState({ width: "750px", marginTop: "-50px" });
+	useLayoutEffect(() => {
+		function updateSize() {
+			const size = window.innerWidth;
+			setWindowSize(size);
+			console.log(size);
+			if (size <= 500) {
+				setMargin({ margin: "0px 20px" });
+				setImg({ width: "400px", marginLeft: "auto" });
+			} else {
+				setMargin({ margin: "0 auto 156px" });
+				setImg({ width: "750px", marginTop: "-50px" });
+			}
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
 	const classes = styles();
 	return (
-		<div className={classes.container}>
+		<div className={classes.container} style={margin}>
 			<div style={{ textAlign: "center" }}>
-				<div
-					class="h2-v2 section-to-reveal"
-					className={classes.text}
-					style={{ color: "rgb(7, 36, 109)" }}
-				>
+				<div className={classes.text} style={{ color: "rgb(7, 36, 109)" }}>
 					Seekho Select Membership
 				</div>
 				<div
-					class="mb-2 section-to-reveal"
+					class="mb-2"
 					className={classes.text1}
 					style={{ color: "rgb(81, 81, 81)", fontWeight: "400" }}
 				>
 					Unlock all of Seekho Select at
-					<span class="d-none d-md-inline-block" style={{ margin: "5px" }}>
-						only{" "}
-					</span>
+					<span style={{ margin: "5px" }}>only </span>
 					<span className={classes.price}>
 						<span style={{ marginRight: "2px" }}>₹</span>999
 					</span>
@@ -88,23 +98,17 @@ function Membership() {
 						</span>
 					</div>
 				</p>
-				<a
-					href="#d"
-					class="d-block d-md-none redirect-to-select-academy mb-4 section-to-reveal"
-				>
-					<button class="home-page-Btn">Join Now</button>
-				</a>
 			</div>
-			<div className={classes.innerContainer}>
-				<div class="col-md-7">
+			<div className={`row ${classes.innerContainer}`}>
+				<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 					<img
-						className={classes.img}
+						style={img}
 						alt="img"
 						src="https://seekho.ai/assets/images/home-page/seekhoSelect.webp"
 					/>
 				</div>
 				<div
-					class="col-md-5 mb-3"
+					class="col-lg-5 col-md-5 col-sm-12 col-xs-12"
 					style={{
 						height: "580px",
 						display: "flex",

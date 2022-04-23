@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { createUseStyles } from "react-jss";
 import Typewriter from "typewriter-effect";
 const styles = createUseStyles({
@@ -20,29 +20,23 @@ const styles = createUseStyles({
 		textAlign: "center",
 		marginBottom: "20px",
 		fontFamily: "'Poppins', sans-serif",
-		fontSize: "48px",
 		letterSpacing: "2.7px",
 		fontWeight: "700",
 		lineHeight: "64px",
+		color: "rgb(7, 36, 109)",
 	},
 	typewrite: {
 		fontSize: "27px !important",
 	},
 	description: {
 		color: "rgb(125, 136, 154)",
-		width: "1054px",
 		margin: "0 auto",
 		textAlign: "center",
 		fontSize: "25px",
 		letterSpacing: "0.76px",
 		lineHeight: "26px",
 	},
-	heroSectionImgDiv: {
-		width: "600px",
-		left: "50%",
-		marginLeft: "-300px",
-		top: "50%",
-	},
+	heroSectionImgDiv: {},
 	sectionImg: {
 		width: "300px",
 		left: "-200px",
@@ -63,22 +57,87 @@ const styles = createUseStyles({
 		letterSpacing: "0.39px",
 		fontWeight: "500",
 		color: "rgb(7, 36, 109)",
-		width: "100px",
-		right: "-50px",
-		top: "280px",
 		textAlign: "center",
+		zIndex: "3",
+		position: "absolute",
 	},
 	sectionImg2: {
-		width: "120px",
-		right: "-60px",
-		top: "200px",
 		boxShadow: "0 3px 6px rgba(0, 0, 0, 0.16)",
 		borderRadius: "5px",
+		zIndex: "3",
+		position: "absolute",
+	},
+	positionAbsolute: {
+		position: "absolute",
 	},
 });
 
 function HeroSection() {
 	const classes = styles();
+	const [windowSize, setWindowSize] = useState(window.innerWidth);
+	const [fontSize, setFontSize] = useState({ fontSize: "48px" });
+	const [img, setImg] = useState({
+		width: "600px",
+		left: "50%",
+		marginLeft: "-300px",
+		top: "50%",
+	});
+	const [descWidth, setDescWidth] = useState({ width: "1054px" });
+	const [img2, setImg2] = useState({
+		width: "120px",
+		right: "-60px",
+		top: "200px",
+	});
+	const [text2, setText2] = useState({
+		width: "100px",
+		right: "-50px",
+		top: "280px",
+	});
+	useLayoutEffect(() => {
+		function updateSize() {
+			const size = window.innerWidth;
+			setWindowSize(size);
+			console.log(size);
+			if (size <= 500) {
+				setDescWidth({ width: "400px" });
+				setFontSize({ fontSize: "30px" });
+				setImg({
+					width: "350px",
+					left: "100px",
+					top: "60%",
+				});
+				setImg2({
+					width: "100px",
+					right: "-10px",
+					top: "90px",
+				});
+				setText2({
+					width: "60px",
+					right: "10px",
+					top: "150px",
+					fontSize: "10px",
+				});
+			} else {
+				setDescWidth({ width: "1054px" });
+				setFontSize({ fontSize: "48px" });
+				setImg({
+					width: "600px",
+					left: "50%",
+					marginLeft: "-300px",
+					top: "50%",
+				});
+				setImg2({ width: "120px", right: "-60px", top: "200px" });
+				setText2({
+					width: "100px",
+					right: "-50px",
+					top: "280px",
+				});
+			}
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
 	return (
 		<div className={classes.container}>
 			<div className={classes.backgroundShape}>
@@ -89,7 +148,7 @@ function HeroSection() {
 				/>
 			</div>
 			<div style={{ marginTop: "200px" }}>
-				<div className={classes.text} style={{ color: "rgb(7, 36, 109)" }}>
+				<div className={classes.text} style={fontSize}>
 					Accelerate Your Career in
 					<span style={{ color: "rgb(255, 89, 118)" }}>
 						<Typewriter
@@ -108,48 +167,45 @@ function HeroSection() {
 						/>
 					</span>
 				</div>
-				<div className={classes.description}>
+				<div className={classes.description} style={descWidth}>
 					Join Select Membership and get access to 1000+ live classes from
 					Industry Gurus, Learning Communities and Kickass Jobs
 				</div>
 			</div>
-			<div
-				className={classes.heroSectionImgDiv}
-				style={{ position: "absolute" }}
-			>
+			<div className={`${classes.positionAbsolute}`} style={img}>
 				<img
 					src="https://seekho.ai/assets/images/home-page/heroSectionVideoPlaceholder.webp"
 					alt="img"
 					style={{ width: "100%", zIndex: "1", position: "relative" }}
 				/>
-				<img
-					class="d-none d-md-block"
-					className={classes.sectionImg}
-					src="https://seekho.ai/assets/images/home-page/heroSectionFloatingVector1.webp"
-					alt="img"
-					style={{ zIndex: "3", position: "absolute" }}
-				/>
-				<div
-					alt="img"
-					className={classes.sectionText}
-					style={{ zIndex: "3", position: "absolute" }}
-				>
-					Say bye to boring classes!
-				</div>
+				{windowSize > 500 && (
+					<>
+						<img
+							class="d-none d-md-block"
+							className={`${classes.sectionImg} ${classes.positionAbsolute}`}
+							src="https://seekho.ai/assets/images/home-page/heroSectionFloatingVector1.webp"
+							alt="img"
+							style={{ zIndex: "3", position: "absolute" }}
+						/>
+						<div
+							alt="img"
+							className={classes.sectionText}
+							style={{ zIndex: "3", position: "absolute" }}
+						>
+							Say bye to boring classes!
+						</div>{" "}
+					</>
+				)}
 				<img
 					className={classes.sectionImg2}
 					src="https://seekho.ai/assets/images/home-page/heroSectionFloatingVector2.webp"
 					alt="img"
-					style={{ zIndex: "3", position: "absolute" }}
+					style={img2}
 				/>
-				<div
-					className={classes.sectionText2}
-					alt="img"
-					style={{ zIndex: "3", position: "absolute" }}
-				>
+				<div className={classes.sectionText2} alt="img" style={text2}>
 					500+ Industry Gurus
 				</div>
-				<div
+				{/* <div
 					class="seekho-select-video-div"
 					style={{ zIndex: "2", position: "absolute" }}
 				>
@@ -157,7 +213,7 @@ function HeroSection() {
 						id="seekhoSelectVideoPreviewDiv"
 						style={{ height: "100%", width: "100%" }}
 					></div>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
