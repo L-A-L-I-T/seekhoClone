@@ -52,7 +52,7 @@ function Rating() {
 		function updateSize() {
 			const size = window.innerWidth;
 			console.log(size);
-			if (size <= 500) setStyle({ margin: "0px 20px" });
+			if (size <= 768) setStyle({ margin: "0px 20px" });
 			else setStyle({});
 		}
 		window.addEventListener("resize", updateSize);

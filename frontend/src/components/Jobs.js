@@ -182,7 +182,7 @@ function Jobs() {
 			const size = window.innerWidth;
 			setWindowSize(size);
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setMargin({ margin: "0px 20px" });
 			} else {
 				setMargin({ margin: "0px 110px" });

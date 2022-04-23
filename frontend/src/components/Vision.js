@@ -42,7 +42,7 @@ function Vision() {
 		function updateSize() {
 			const size = window.innerWidth;
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setStyle({ margin: "0px 20px" });
 				setImgSize({ width: "500px", height: "auto" });
 			} else {

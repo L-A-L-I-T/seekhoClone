@@ -32,7 +32,7 @@ function App() {
 			<div style={{ height: "100px" }}></div>
 			<Membership />
 			<div style={{ height: "100px" }}></div>
-			{windowSize > 500 && (
+			{windowSize > 768 && (
 				<>
 					<Academy />
 					<div style={{ height: "100px" }}></div>

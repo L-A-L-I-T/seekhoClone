@@ -6,7 +6,7 @@ function Poster() {
 		function updateSize() {
 			const size = window.innerWidth;
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setMargin({ margin: "0px 20px" });
 			} else {
 				setMargin({ margin: "50px 130px" });

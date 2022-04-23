@@ -86,7 +86,7 @@ function Navbar() {
 			<div>
 				<img src={SeekhoLogo} alt="logo" style={{ width: "130px" }} />
 			</div>
-			{windowSize > 500 && (
+			{windowSize > 768 && (
 				<>
 					<div
 						style={{

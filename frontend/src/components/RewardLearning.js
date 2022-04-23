@@ -79,7 +79,7 @@ function RewardLearning() {
 			const size = window.innerWidth;
 			setWindowSize(size);
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setMargin({ margin: "0px 20px" });
 				setImg3({ position: "static", width: "400px" });
 			} else {

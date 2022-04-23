@@ -55,7 +55,7 @@ function Membership() {
 			const size = window.innerWidth;
 			setWindowSize(size);
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setMargin({ margin: "0px 20px" });
 				setImg({ width: "400px", marginLeft: "auto" });
 			} else {

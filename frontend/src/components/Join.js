@@ -93,7 +93,7 @@ function Join() {
 		function updateSize() {
 			const size = window.innerWidth;
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setMargin({ margin: "0px 20px" });
 				setSmallGifPos({ left: "190px", bottom: "215px" });
 				setBigGifPos({ left: "348px", bottom: "120px" });

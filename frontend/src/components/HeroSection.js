@@ -98,7 +98,7 @@ function HeroSection() {
 			const size = window.innerWidth;
 			setWindowSize(size);
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setDescWidth({ width: "400px" });
 				setFontSize({ fontSize: "30px" });
 				setImg({
