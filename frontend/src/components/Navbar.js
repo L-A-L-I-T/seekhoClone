@@ -71,7 +71,7 @@ function Navbar() {
 			const size = window.innerWidth;
 			setWindowSize(size);
 			console.log(size);
-			if (size <= 500) {
+			if (size <= 768) {
 				setPadding({ padding: "10px 20px" });
 			} else {
 				setPadding({ padding: "10px 150px" });
