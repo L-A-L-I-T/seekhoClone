@@ -107,7 +107,7 @@ function RewardLearning() {
 				scouted by leading companies who trust our leaderboard ranking
 			</div>
 			<div className={classes.imgDiv}>
-				{windowSize > 500 && (
+				{windowSize > 768 && (
 					<img
 						className={classes.img}
 						src="https://seekho.ai/assets/images/home-page/talentBoard.webp"
@@ -115,7 +115,7 @@ function RewardLearning() {
 						alt="img"
 					/>
 				)}
-				{windowSize > 500 && (
+				{windowSize > 768 && (
 					<img
 						className={classes.img2}
 						src="https://seekho.ai/assets/images/home-page/talentBoardFeedBack.png"
@@ -127,7 +127,7 @@ function RewardLearning() {
 					src="https://seekho.ai/assets/images/home-page/talentBoardStats.png"
 					alt="img"
 				/>
-				{windowSize > 500 && (
+				{windowSize > 768 && (
 					<div className={classes.talentGif}>
 						<Lottie options={defaultOptions} />
 					</div>

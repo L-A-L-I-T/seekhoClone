@@ -212,7 +212,7 @@ function Jobs() {
 					className={`col-lg-6 col-md-6 col-sm-12 col-xs-12 ${classes.positionRelative}`}
 				>
 					<div className={classes.animationContainer} style={animationStyle}>
-						{windowSize > 500 && (
+						{windowSize > 768 && (
 							<div
 								className={`${classes.rotateDiv} ${classes.positionRelative}`}
 								style={jobOrbitRotate}

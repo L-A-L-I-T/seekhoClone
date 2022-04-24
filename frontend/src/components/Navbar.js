@@ -143,7 +143,7 @@ function Navbar() {
 			)}
 			<button
 				class={classes.loginBtn}
-				style={{ marginLeft: windowSize > 500 ? "" : "auto" }}
+				style={{ marginLeft: windowSize > 768 ? "" : "auto" }}
 			>
 				Login
 			</button>

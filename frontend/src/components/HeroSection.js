@@ -178,7 +178,7 @@ function HeroSection() {
 					alt="img"
 					style={{ width: "100%", zIndex: "1", position: "relative" }}
 				/>
-				{windowSize > 500 && (
+				{windowSize > 768 && (
 					<>
 						<img
 							class="d-none d-md-block"
